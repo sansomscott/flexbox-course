@@ -2,49 +2,128 @@
 <html lang='en'>
 
 <head>
-    <meta charset='UTF-8'>
-    <title></title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            margin: 0;
-            height: calc(100vh - 20px);
-            width: calc(100vw - 20px);
-            border: 10px solid red;
+  <meta charset='UTF-8'>
+  <title></title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+<style>
+    body {
+        margin: 0px;
+    }
+
+    .navbar {
+        background-color: turquoise;
+    }
+
+    .navbar div {
+        display: none;
+    }
+
+    .navbar .toggle,
+    .navbar .brand {
+        display: inline-block;
+    }
+
+    .navbar .link {
+        display: block;
+        text-align: center;
+        padding: 1em;
+        text-decoration: none;
+        background: #222222;
+        color: white;
+    }
+
+    .navbar .link:hover,
+    .navbar .link:active {
+        color: #222222;
+        background: white;
+    }
+
+    .navbar .brand {
+        width: 10em;
+        text-align: center;
+        padding: 1em;
+        color: white;
+    }
+
+    .navbar a {
+        text-decoration: none;
+    }
+
+    .navbar .toggle {
+        padding: 1em;
+        color: black;
+    }
+
+    @media (min-width: 48em) {
+        .navbar {
             display: flex;
-            justify-content: center;
-            align-items: center;
         }
-        .container>.img_blocks {
+
+        .navbar div {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
         }
-        .img_blocks img {
-            margin: 5px;
-            height: 120px;
+
+        .navbar .left,
+        .navbar .right {
+            display: flex;
+            flex: 1;
+        }
+
+        .navbar .link {
             width: auto;
         }
-    </style>
+
+        .navbar .right {
+            justify-content: flex-end;
+        }
+
+        .navbar .toggle {
+            display: none;
+        }
+    }
+
+    @media (max-width: 48em) {
+        .navbar.active .toggle {
+            background: #222222;
+            color: white;
+        }
+
+        .navbar .brand {
+            text-align: left;
+        }
+
+        .navbar.active div {
+            display: block;
+        }
+    }
+</style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="img_blocks">
-            <img src="images/1.jpg" alt="">
-            <img src="images/2.jpg" alt="">
-            <img src="images/3.jpg" alt="">
-            <img src="images/4.jpg" alt="">
-            <img src="images/5.jpg" alt="">
-            <img src="images/6.jpg" alt="">
-            <img src="images/7.jpg" alt="">
-            <img src="images/8.jpg" alt="">
-        </div>
-    </div>
+  <div class="navbar">
+      <a href="#" class="toggle" id="navHamburger">
+            <i class="fas fa-bars"></i>
+      </a>
+      <a href="#" class="brand">Scott Sansom</a>
+
+      <div class="left">
+          <a href="#" class="link">Link 1</a>
+          <a href="#" class="link">Link 2</a>
+      </div>
+
+      <div class="right">
+        <a href="#" class="link">Link 3</a>
+      </div>
+  </div>
 </body>
+
+<script>
+    const navHamburger = document.queryselector('#navHamburger')
+
+    navHamburger.addEventListener ('click', (e) => {
+        navHamburger.parentElement.classList.toggle ('active');
+    })
+</script>
 
 </html>
